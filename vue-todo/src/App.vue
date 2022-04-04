@@ -12,13 +12,7 @@ export default {
   name: 'App',
   data(){
     return {
-      todos:[
-        {
-          id:1,
-          title:"todo 1",
-          completed:false
-        },
-      ]
+      todos:[]
     }
   },
   components: {
@@ -33,7 +27,8 @@ export default {
   },
   methods:{
     addTodo(newTodo){
-      this.todos = [...this.todos,newTodo]
+      // this.todos = [...this.todos,newTodo]
+      this.todos.push(newTodo)
       localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
     deleteTodo(id){
@@ -44,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 *{
   margin: 0;
   padding: 0;

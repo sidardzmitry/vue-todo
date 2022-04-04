@@ -11,7 +11,7 @@
           v-bind:checked="todo.completed"
           class="input__check__app"
         />
-        <span class="text__item__app"><strong>Name:</strong>{{ todo.title }}</span>
+        <span class="text__item__app"><strong>Name:</strong>{{ toUpperCase(todo.title) }}</span>
       </div>
       <div class='block__button__app'>
         <button class="button__todo__app btn" @click="updateTodo">Update</button>
@@ -43,6 +43,9 @@ export default {
   name: "TodoItem",
   props: ["todos", "title", "id", "todo"],
   methods: {
+    toUpperCase(title) {
+      return title.toUpperCase();
+    },
     markComplete() {
       this.completed = !this.completed;
       localStorage.setItem("tasks", JSON.stringify(this.todos));
