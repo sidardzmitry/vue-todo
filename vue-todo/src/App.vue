@@ -18,21 +18,6 @@ export default {
           title:"todo 1",
           completed:false
         },
-        {
-          id:2,
-          title:"todo 2",
-          completed:true
-        },
-        {
-          id:3,
-          title:"todo 3",
-          completed:false
-        },
-        {
-          id:4,
-          title:"todo 4",
-          completed:true
-        }
       ]
     }
   },
@@ -40,12 +25,20 @@ export default {
     Todos,
     AddTodo
   },
+    mounted() {
+    const data = localStorage.getItem("tasks");
+    if (data) {
+      this.tasks = JSON.parse(data);
+    }
+  },
   methods:{
     addTodo(newTodo){
       this.todos = [...this.todos,newTodo]
+      localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
     deleteTodo(id){
       this.todos = this.todos.filter((todo) => todo.id !== id)
+      localStorage.setItem("tasks", JSON.stringify(this.todos));
     }
   }
 };

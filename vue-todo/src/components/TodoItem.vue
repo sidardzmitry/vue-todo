@@ -45,6 +45,7 @@ export default {
   methods: {
     markComplete() {
       this.completed = !this.completed;
+      localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
     updateTodo() {
       this.flag = !this.flag;
@@ -57,6 +58,7 @@ export default {
           todo.title = this.updateTitle;
         }
       });
+      localStorage.setItem("tasks", JSON.stringify(this.todos));
       this.flag = false;
     },
   },
