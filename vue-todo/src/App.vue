@@ -32,6 +32,7 @@ export default {
     addTodo(newTodo){
       // this.todos = [...this.todos,newTodo]
       this.todos.push(newTodo)
+      this.title=''
       localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
     deleteTodo(id){

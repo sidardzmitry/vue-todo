@@ -1,5 +1,6 @@
 <template>
-  <div class="container__todo__app">
+  <div class="container__todo__app" 
+  >
     <div
       class="container__item__app"
       v-bind:class="{ 'done': todo.completed }"
@@ -11,7 +12,7 @@
           v-bind:checked="todo.completed"
           class="input__check__app"
         />
-        <span class="text__item__app"><strong>Name:</strong>{{ toUpperCase(todo.title) }}</span>
+        <span class="text__item__app"><strong><b>{{index + 1}}</b>. Name:</strong>{{ toUpperCase(todo.title) }}</span>
       </div>
       <div class='block__button__app'>
         <button class="button__todo__app btn" @click="updateTodo">Update</button>
@@ -28,6 +29,8 @@
             v-model="updateTitle"
             type="text"
             :placeholder="title"
+            required
+            
           />
         </div>
         <div class="block__button__app">
@@ -41,7 +44,7 @@
 <script>
 export default {
   name: "TodoItem",
-  props: ["todos", "title", "id", "todo"],
+  props: ["todos", "title", "id", "todo", 'index'],
   methods: {
     toUpperCase(title) {
       return title.toUpperCase();
