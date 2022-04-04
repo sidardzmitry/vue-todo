@@ -15,7 +15,13 @@ export default {
   name: 'App',
   data(){
     return {
-      todos:[]
+      todos:[
+        {
+          id: 1,
+          title: 'dima',
+          completed: false
+        }
+      ]
     }
   },
   components: {
@@ -50,7 +56,12 @@ export default {
   box-sizing: border-box;
 }
 .main__app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ffffff;
   width: 700px;
-  margin-left: 25%;
 }
 </style>

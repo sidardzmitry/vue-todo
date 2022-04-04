@@ -12,6 +12,13 @@
           placeholder="Add Title"
           class="input__todo__app"
         />
+          <input
+          required
+          type="text"
+          v-model="title"
+          placeholder="Add Desc"
+          class="input__todo__app"
+        />
       </div>
       <div class="box__todo__app">
         <button class="button__todo__app">Add Todo</button>
@@ -50,23 +57,27 @@ export default {
   flex-direction: column;
 }
 .title__todo__app {
-  color: rgb(112, 9, 209);
+  color: #ece89d;
   font-size: 55px;
 }
 .box__todo__app {
   padding: 10px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .input__todo__app {
   width: 400px;
-  padding: 10px;
+  padding: 8px 5px 0 8px;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #ff6413;
 }
 .input__todo__app::placeholder {
-  font-size: 20px;
+  font-size: 15px;
 }
 .button__todo__app {
-  padding: 10px 15px;
+  padding: 5px 10px;
   background-color: #ff6413;
   color: #fff;
   border: none;
