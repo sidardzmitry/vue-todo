@@ -7,7 +7,7 @@
       <div class="block__input__app">
         <input
           type="checkbox"
-          v-on:change="markComplete"
+          v-on:change="doneTask"
           v-bind:checked="todo.completed"
           class="input__check__app"
         />
@@ -46,7 +46,7 @@ export default {
     toUpperCase(title) {
       return title.toUpperCase();
     },
-    markComplete() {
+    doneTask() {
       this.completed = !this.completed;
       localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
