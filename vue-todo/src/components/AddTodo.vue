@@ -2,8 +2,7 @@
   <div class="container__todo__app">
     <br />
     <!-- <h1 class="title__todo__app">ToDo App</h1> -->
-        <img src="../assets/logo.svg" alt="">
-    <hr/>
+    <img src="../assets/logo.svg" alt="TodoApp" />
     <br />
     <form @submit.prevent="addTodo">
       <div class="box__todo__app">
@@ -31,12 +30,12 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log(this.title)
-        const newTodo = {
+      console.log(this.title);
+      const newTodo = {
         id: Date.now(),
         title: this.title,
         completed: false,
-      }
+      };
       this.$emit("add-todo", newTodo);
       this.title = "";
     },
@@ -50,10 +49,6 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-.container__todo__app hr {
-  width: 300px;
-  border-color: #ff6413;
 }
 .title__todo__app {
   color: #ffffff;

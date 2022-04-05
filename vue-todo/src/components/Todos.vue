@@ -2,21 +2,21 @@
   <div v-if="todos.length > 0">
     <div>
       <TodoItem
-        v-bind:key="todo.id"
+        :key="todo.id"
         v-for="(todo, i) in todos"
-        v-bind:index="i"
-        v-bind:id="todo.id"
-        v-bind:title="todo.title"
-        v-bind:todo="todo"
+        :index="i"
+        :id="todo.id"
+        :title="todo.title"
+        :todo="todo"
         v-on:del-todo="$emit('del-todo', todo.id)"
-        v-bind:todos="todos"
+        :todos="todos"
       />
     </div>
     <h3 class="count__app">
       Count tasks: <b>{{ updateCount }}</b>
     </h3>
   </div>
-  <h2 v-else class="text__no__tasks">Список пуск</h2>
+  <h2 v-else class="text__no__tasks">The list is empty.</h2>
 </template>
 
 <script>
@@ -29,9 +29,9 @@ export default {
   props: ["todos"],
   computed: {
     updateCount() {
-      return this.todos.length
-    }
-  }
+      return this.todos.length;
+    },
+  },
 };
 </script>
 
@@ -42,7 +42,7 @@ export default {
   margin: 50px 0 0 0;
   text-decoration: underline #ff6413;
 }
-.count__app{
+.count__app {
   color: white;
   margin-top: 10px;
   font-weight: 200;
