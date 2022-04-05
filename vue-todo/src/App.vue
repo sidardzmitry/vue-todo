@@ -1,5 +1,6 @@
 <template>
   <div class="main__app">
+    <!-- <img src="./assets/logo.svg" alt=""> -->
     <AddTodo 
     v-on:add-todo="addTodo" />
     <Todos 
@@ -54,6 +55,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 .main__app{
   display: flex;
@@ -61,7 +63,6 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  border: 1px solid #ffffff;
   width: 700px;
 }
 </style>

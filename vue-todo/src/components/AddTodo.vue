@@ -1,7 +1,9 @@
 <template>
   <div class="container__todo__app">
     <br />
-    <h1 class="title__todo__app">ToDo App</h1>
+    <!-- <h1 class="title__todo__app">ToDo App</h1> -->
+        <img src="../assets/logo.svg" alt="">
+    <hr/>
     <br />
     <form @submit.prevent="addTodo">
       <div class="box__todo__app">
@@ -10,13 +12,6 @@
           type="text"
           v-model="title"
           placeholder="Add Title"
-          class="input__todo__app"
-        />
-          <input
-          required
-          type="text"
-          v-model="title"
-          placeholder="Add Desc"
           class="input__todo__app"
         />
       </div>
@@ -56,18 +51,22 @@ export default {
   align-items: center;
   flex-direction: column;
 }
+.container__todo__app hr {
+  width: 300px;
+  border-color: #ff6413;
+}
 .title__todo__app {
-  color: #ece89d;
+  color: #ffffff;
   font-size: 55px;
 }
 .box__todo__app {
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 .input__todo__app {
-  width: 400px;
+  width: 500px;
   padding: 8px 5px 0 8px;
   outline: none;
   border: none;

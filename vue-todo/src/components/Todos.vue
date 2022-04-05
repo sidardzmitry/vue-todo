@@ -12,12 +12,11 @@
         v-bind:todos="todos"
       />
     </div>
-    <h3>
-      Общее количество: <b>{{ updateCount }}</b>
+    <h3 class="count__app">
+      Count tasks: <b>{{ updateCount }}</b>
     </h3>
   </div>
   <h2 v-else class="text__no__tasks">Список пуск</h2>
-  <hr />
 </template>
 
 <script>
@@ -39,7 +38,15 @@ export default {
 <style scoped>
 .text__no__tasks {
   text-align: center;
-  color: brown;
+  color: #ffffff;
+  margin: 50px 0 0 0;
+  text-decoration: underline #ff6413;
+}
+.count__app{
+  color: white;
   margin-top: 10px;
+  font-weight: 200;
+  text-decoration: underline #ff6413;
+  font-size: 18px;
 }
 </style>

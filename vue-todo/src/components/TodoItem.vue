@@ -3,19 +3,23 @@
   >
     <div
       class="container__item__app"
-      v-bind:class="{ 'done': todo.completed }"
+      v-bind:class="{ 'done': this.todo.completed }"
       >
       <div class="block__input__app">
-        <input
+        <!-- <input
           type="checkbox"
           v-on:change="doneTask"
           v-bind:checked="todo.completed"
           class="input__check__app"
-        />
-        <span class="text__item__app"><strong><b>{{index + 1}}</b>. </strong>{{ toUpperCase(todo.title) }}</span>
+        /> -->
+        <span class="text__item__app"><b class="index__count">{{ index + 1 }}.</b>{{ toUpperCase(todo.title) }}</span>
       </div>
       <div class='block__button__app'>
-        <button class="button__todo__app btn" @click="updateTodo">Update</button>
+        <button class="button__todo__app btn" 
+          v-on:click="doneTask"
+          v-bind:checked="todo.completed"
+        >Check</button>
+        <button class="button__todo__app btn" @click="updateTodo">Edit</button>
         <button @click="$emit('del-todo', todo.id)" class="button__todo__app">
           Delete
         </button>
@@ -31,10 +35,9 @@
             :placeholder="title"
             required
           />
+          <button class="button__todo__app btn__item">Save</button>
         </div>
-        <div class="block__button__app">
-          <button class="button__todo__app">Update</button>
-        </div>
+
       </form>
     </div>
   </div>
@@ -48,8 +51,14 @@ export default {
     toUpperCase(title) {
       return title.toUpperCase();
     },
-    doneTask() {
-      this.completed = !this.completed;
+    doneTask(todo) {
+      console.log('doneTask')
+      console.log(this.todo.completed)
+      console.log(this.completed)
+      console.log(todo.completed)
+      todo.completed = !this.todo.completed;
+      console.log(this.todo.completed)
+      console.log(todo.completed)
       localStorage.setItem("tasks", JSON.stringify(this.todos));
     },
     updateTodo() {
@@ -77,16 +86,23 @@ export default {
 </script>
 
 <style scoped>
-.container__todo__app {}
 .container__item__app {
-  background: #ffffff;
+  background: #ffffff11;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  width: 600px;
+  margin-top: 20px;
+  border: 1px solid #ff6413;
 }
 .done {
+  background-color: #ff6413;
   text-decoration: line-through;
+}
+.index__count{
+  color: #ff6413;
+  margin-right: 5px;
 }
 .input__check__app{
   margin: 10px;
@@ -94,17 +110,13 @@ export default {
 .text__item__app{
   font-size: 17px;
   word-break: break-all;
-}
-.block__button__app{
-  display: flex;
+  color: white;
 }
 .button__todo__app {
   padding: 5px 10px;
   background-color: #ff6413;
   color: #fff;
   border: none;
-  align-items: center;
-
 }
 .button__todo__app:hover {
   cursor: pointer;
@@ -114,14 +126,15 @@ export default {
 .btn{
   margin-right: 5px;
 }
-.block__update__app{
-  padding: 10px;
+.btn__item{
+  margin: 0 0 0 5px;
 }
 .input__item__app{
-  width: 300px;
-  padding: 5px;
-}
-.block__input__app{
-  padding: 5px;
+  margin-top: 5px;
+  width: 400px;
+  padding: 8px 5px 0 5px;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #ff6413;
 }
 </style>
