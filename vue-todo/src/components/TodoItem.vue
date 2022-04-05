@@ -10,7 +10,7 @@
       <div class="block__button__app">
         <button
           class="button__todo__app btn"
-          v-on:click="doneTask"
+          @click="doneTask"
           :checked="todo.completed"
         >
           Check
@@ -31,7 +31,7 @@
             :placeholder="title"
             required
           />
-          <button class="button__todo__app btn__item">Save</button>
+          <button class="button__todo__app btn__save">Save</button>
         </div>
       </form>
     </div>
@@ -76,6 +76,7 @@ export default {
       flag: false,
       updateTitle: "",
       completed: false,
+      storage: "",
     };
   },
 };
@@ -93,7 +94,11 @@ export default {
   border: 1px solid #ff6413;
 }
 .done {
-  text-decoration: line-through;
+  text-decoration: #000000 line-through;
+}
+.block__input__app {
+  display: flex;
+  padding: 5px;
 }
 .index__count {
   color: #ff6413;
@@ -121,12 +126,11 @@ export default {
 .btn {
   margin-right: 5px;
 }
-.btn__item {
-  margin: 0 0 0 5px;
+.btn__save {
+  margin-left: 5px;
 }
 .input__item__app {
-  margin-top: 5px;
-  width: 400px;
+  width: 422px;
   padding: 8px 5px 0 5px;
   outline: none;
   border: none;

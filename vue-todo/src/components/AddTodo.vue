@@ -1,7 +1,6 @@
 <template>
   <div class="container__todo__app">
     <br />
-    <!-- <h1 class="title__todo__app">ToDo App</h1> -->
     <img src="../assets/logo.svg" alt="TodoApp" />
     <br />
     <form @submit.prevent="addTodo">
@@ -30,7 +29,6 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log(this.title);
       const newTodo = {
         id: Date.now(),
         title: this.title,

@@ -13,7 +13,7 @@
       />
     </div>
     <h3 class="count__app">
-      Count tasks: <b>{{ updateCount }}</b>
+      Count: <b>{{ updateCount }}</b>
     </h3>
   </div>
   <h2 v-else class="text__no__tasks">The list is empty.</h2>
@@ -46,7 +46,6 @@ export default {
   color: white;
   margin-top: 10px;
   font-weight: 200;
-  text-decoration: underline #ff6413;
-  font-size: 18px;
+  font-size: 20px;
 }
 </style>

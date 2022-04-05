@@ -1,7 +1,9 @@
 <template>
   <div class="main__app">
     <AddTodo v-on:add-todo="addTodo" />
-    <Todos :todos="todos" v-on:del-todo="deleteTodo" />
+    <Todos :todos="todos" 
+    v-on:del-todo="deleteTodo" 
+    />
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default {
   mounted() {
     const data = localStorage.getItem("tasks");
     if (data) {
-      this.tasks = JSON.parse(data);
+      this.todos = JSON.parse(data);
     }
   },
   methods: {
